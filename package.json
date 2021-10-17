@@ -1,0 +1,15 @@
+{
+  "name": "static-server",
+  "version": "1.0.0",
+  "description": "static file server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kshitij Amit Sabale",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-server": "^13.0.2"
+  }
+}

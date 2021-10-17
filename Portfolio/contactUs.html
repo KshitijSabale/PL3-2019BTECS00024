@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+            text-decoration: none;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            color:white;
+            background-color: rgb(30, 30, 40);;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background: #090f1b;
+            /* position: fixed; */
+            top: 0;
+            left: 0;
+            padding: 0 25px;
+        }
+
+        .navbar .inner_navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+
+        .navbar .hamburger {
+            display: none;
+        }
+
+        .navbar .logo a {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 3px;
+            color:cyan;
+        }
+
+        .navbar .logo a span {
+            color: #5bd485;
+        }
+
+        .navbar .menu ul {
+            display: flex;
+        }
+
+        .navbar .menu ul li a {
+            width: 120px;
+            margin-right: 10px;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 25px;
+            color:cyan;
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .navbar .menu ul li:last-child a {
+            margin-right: 0;
+        }
+
+        .navbar .menu ul li a:hover,
+        .navbar .menu ul li a.active {
+            background:rgba(46, 46, 46, 0.973);
+        }
+
+        .main_container {
+            margin-top: 60px;
+            padding: 25px;
+        }
+
+        .main_container .content {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .main_container .content .item_wrap {
+            width: 50%;
+            padding: 10px;
+        }
+
+        .main_container .content .item_wrap .item {
+            padding: 25px;
+            background: #fff;
+            line-height: 22px;
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                height: 100px;
+                padding: 12px;
+            }
+
+            .navbar .inner_navbar {
+                flex-direction: column;
+            }
+
+            .main_container {
+                margin-top: 100px;
+            }
+        }
+
+        @media (max-width: 728px) {
+            .navbar {
+                height: 60px;
+            }
+
+            .navbar .inner_navbar {
+                flex-direction: row;
+            }
+
+            .main_container {
+                margin-top: 60px;
+            }
+
+            .navbar .menu ul {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                display: block;
+                background: #090f1b;
+                width: 100%;
+            }
+
+            .navbar .menu ul li {
+                padding: 10px;
+            }
+
+            .navbar .menu ul li a {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .navbar .hamburger {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 25px;
+                font-size: 24px;
+                color: #fff;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .navbar .hamburger:hover {
+                color: #5bd485;
+            }
+
+            .navbar .menu {
+                display: none;
+            }
+
+            .navbar .menu.active {
+                display: block;
+            }
+
+            .main_container .content .item_wrap {
+                width: 100%;
+            }
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+        form {
+            max-width: 420px;
+            margin: 50px auto;
+        }
+
+        .feedback-input {
+            color: white;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 5px;
+            line-height: 22px;
+            background-color: transparent;
+            border: 2px solid cyan;
+            transition: all 0.3s;
+            padding: 13px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: 0;
+        }
+
+        .feedback-input:focus {
+            border: 2px solid lightcyan;
+        }
+
+        textarea {
+            height: 150px;
+            line-height: 150%;
+            resize: vertical;
+        }
+
+        [type="submit"] {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            width: 100%;
+            background: cyan;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: all 0.3s;
+            margin-top: -4px;
+            font-weight: 700;
+        }
+
+        [type="submit"]:hover {
+            background: lightcyan;
+        }
+
+        footer {
+            color:black;
+            position: relative;
+            height: 65px;
+            left: 0;
+            bottom: 0;
+            font-size: 14px;
+            background-color: #00fcfc;
+            width: 100%;
+            height: max-content;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="inner_navbar">
+            <div class="logo">
+                <a href="home.html">KS</span></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contactUs.html" class="active">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <form>
+            <input name="name" type="text" class="feedback-input" placeholder="Name" />
+            <input name="email" type="text" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+            <input type="submit" id="submit"value="SUBMIT" />
+        </form>
+    </div>
+    <footer style="text-align: center;margin-top: 44%;" >
+        <h4>
+            CREATED BY - KSHITIJ AMIT SABALE
+        </h4>
+    </footer>  
+</body>
+<script>
+    document.getElementById('submit').addEventListener('click',()=>{
+        alert('Message Send Successfully');
+    });
+</script>
+</html>

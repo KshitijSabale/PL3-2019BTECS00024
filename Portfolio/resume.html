@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+            text-decoration: none;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            color: white;
+            background-color: rgb(30, 30, 40);
+            ;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background: #090f1b;
+            /* position: fixed; */
+            top: 0;
+            left: 0;
+            padding: 0 25px;
+        }
+
+        .navbar .inner_navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+
+        .navbar .hamburger {
+            display: none;
+        }
+
+        .navbar .logo a {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 3px;
+            color: cyan;
+        }
+
+        .navbar .logo a span {
+            color: #5bd485;
+        }
+
+        .navbar .menu ul {
+            display: flex;
+        }
+
+        .navbar .menu ul li a {
+            width: 120px;
+            margin-right: 10px;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 25px;
+            color: cyan;
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .navbar .menu ul li:last-child a {
+            margin-right: 0;
+        }
+
+        .navbar .menu ul li a:hover,
+        .navbar .menu ul li a.active {
+            background: rgba(46, 46, 46, 0.973);
+        }
+
+        .main_container {
+            margin-top: 60px;
+            padding: 25px;
+        }
+
+        .main_container .content {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .main_container .content .item_wrap {
+            width: 50%;
+            padding: 10px;
+        }
+
+        .main_container .content .item_wrap .item {
+            padding: 25px;
+            background: #fff;
+            line-height: 22px;
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                height: 100px;
+                padding: 12px;
+            }
+
+            .navbar .inner_navbar {
+                flex-direction: column;
+            }
+
+            .main_container {
+                margin-top: 100px;
+            }
+        }
+
+        @media (max-width: 728px) {
+            .navbar {
+                height: 60px;
+            }
+
+            .navbar .inner_navbar {
+                flex-direction: row;
+            }
+
+            .main_container {
+                margin-top: 60px;
+            }
+
+            .navbar .menu ul {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                display: block;
+                background: #090f1b;
+                width: 100%;
+            }
+
+            .navbar .menu ul li {
+                padding: 10px;
+            }
+
+            .navbar .menu ul li a {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .navbar .hamburger {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 25px;
+                font-size: 24px;
+                color: #fff;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .navbar .hamburger:hover {
+                color: #5bd485;
+            }
+
+            .navbar .menu {
+                display: none;
+            }
+
+            .navbar .menu.active {
+                display: block;
+            }
+
+            .main_container .content .item_wrap {
+                width: 100%;
+            }
+        }
+
+
+
+        .table-wrapper {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto;
+        }
+
+        table {
+            margin: 0 0 2rem 0;
+            width: 100%;
+        }
+
+        table tbody tr {
+            border: solid 1px black;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        table tbody tr:nth-child(2n + 1) {
+            background-color: rgba(255, 255, 255, 0.075);
+        }
+
+        table td {
+            padding: 0.75em 0.75em;
+        }
+
+        table th {
+            color: black;
+            font-size: 0.9em;
+            font-weight: 600;
+            padding: 0 0.75em 0.75em 0.75em;
+            text-align: left;
+        }
+
+        table thead {
+            border-bottom: solid 2px black;
+        }
+
+        table tfoot {
+            border-top: solid 2px black;
+        }
+
+        table.alt {
+            border-collapse: separate;
+        }
+
+        table.alt tbody tr td {
+            border: solid 1px black;
+            border-left-width: 0;
+            border-top-width: 0;
+        }
+
+        table.alt tbody tr td:first-child {
+            border-left-width: 1px;
+        }
+
+        table.alt tbody tr:first-child td {
+            border-top-width: 1px;
+        }
+
+        table.alt thead {
+            border-bottom: 0;
+        }
+
+        table.alt tfoot {
+            border-top: 0;
+        }
+
+        .skill-row {
+            padding: px;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            color: darkcyan;
+            font-weight: 600;
+            margin: 15px;
+            height: 28px;
+            width: 150px;
+            padding-top: 5px;
+            text-align: center;
+            border-radius: 25px;
+            font-family: "Open Sans";
+            background-color: darkcyan;
+        }
+        /* FONTS
+font-family: 'Hind Guntur', sans-serif;
+font-family: 'Hind Vadodara', sans-serif;
+font-family: 'Gudea', sans-serif;
+font-family: 'Ropa Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Comfortaa', cursive;
+font-family: 'Hind Madurai', sans-serif;
+font-family: 'Asap', sans-serif; 98cfd9
+*/
+
+body {
+  font-family: "Source Code Pro", monospace;
+  color:black;
+  margin: 0;
+  background: -webkit-linear-gradient(
+    to bottom,
+    cyan,
+    darkcyan
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    cyan,
+    darkcyan
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#text-small,
+#text-big {
+  font-family: Niconne;
+  color:black;
+  text-shadow: 2px 2px #222222;
+}
+
+#text-small {
+  font-size: 3vw;
+}
+
+#text-big {
+  font-size: 5vw;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 64px;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 22px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+p {
+  margin-bottom: 30px;
+  line-height: 30px;
+}
+img {
+  border: 0;
+}
+
+a:link,
+a:active,
+a:visited {
+  color: #ddd;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #09183d;
+}
+
+main {
+  width: 70%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+footer {
+  color: #fff;
+  position: relative;
+  height: 65px;
+  left: 0;
+  bottom: 0;
+  font-size: 14px;
+  background-color: #090f33;
+  width: 100%;
+  height: max-content;
+  padding: 15px;
+}
+
+.button {
+  background-color: #090f33;
+  padding-top: 6px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  color: #fff;
+  border-radius: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+nav {
+  text-align: center;
+  margin: 40px;
+  float: right;
+}
+nav > a.button {
+  background-color: #278c9e;
+}
+
+ul {
+  font-size: 12.5px;
+  line-height: 20px;
+}
+
+.hero {
+  color:cyan;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 160px;
+  padding-bottom: 160px;
+  background-color: black;
+  background-image: url(https://i.pinimg.com/originals/6c/0b/54/6c0b541ca892b09a03813ed2ac674444.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 320px;
+}
+/* .social {
+  float: right;
+} */
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/* timeline code */
+* {
+  box-sizing: border-box;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.tlcontainer {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.tlcontainer::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #090f33;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.tlleft {
+  left: 0;
+}
+
+/* Place the container to the right */
+.tlright {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.tlleft::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.tlright::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.tlright::after {
+  left: -16px;
+}
+
+/* The actual content */
+.tlcontent {
+  padding: 20px 30px;
+  background-color: #090f33;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  /* Full-width containers */
+  .tlcontainer {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Make sure that all arrows are pointing leftwards */
+  .tlcontainer::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .tlleft::after,
+  .tlright::after {
+    left: 15px;
+  }
+
+  /* Make all right containers behave like the left ones */
+  .tlright {
+    left: 0%;
+  }
+}
+
+.hometown {
+  display: flex;
+  justify-content: center;
+}
+.visit {
+  display: flex;
+  justify-content: center;
+}
+
+.box > img {
+  border-radius: 50%;
+  box-shadow: rgba(5, 5, 54, 0.959) 0px 40px 40px -20px;
+  margin: 20px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.head-resume {
+  border-radius: 5px;
+  background-color: #4c98af;
+  height: 150px;
+  margin-bottom: 30px;
+}
+#image {
+  float: left;
+  margin-top: 1%;
+  margin-left: 20px;
+}
+#name {
+  float: left;
+  margin-top: 65px;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  font-size: 26px;
+  font-weight: 200;
+  color: black;
+}
+#email {
+  float: right;
+  margin-top: 65px;
+  margin-right: 20px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: black;
+}
+/* Table */
+
+.table-wrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
+table {
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
+
+table tbody tr {
+  border: solid 1px black;
+  border-left: 0;
+  border-right: 0;
+}
+
+table tbody tr:nth-child(2n + 1) {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+table td {
+  padding: 0.75em 0.75em;
+}
+
+table th {
+  color: black;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0 0.75em 0.75em 0.75em;
+  text-align: left;
+}
+
+table thead {
+  border-bottom: solid 2px black;
+}
+
+table tfoot {
+  border-top: solid 2px black;
+}
+
+table.alt {
+  border-collapse: separate;
+}
+
+table.alt tbody tr td {
+  border: solid 1px black;
+  border-left-width: 0;
+  border-top-width: 0;
+}
+
+table.alt tbody tr td:first-child {
+  border-left-width: 1px;
+}
+
+table.alt tbody tr:first-child td {
+  border-top-width: 1px;
+}
+
+table.alt thead {
+  border-bottom: 0;
+}
+
+table.alt tfoot {
+  border-top: 0;
+}
+
+.skill-row {
+  padding: px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.skill {
+  color: #11455c;
+  font-weight: 600;
+  margin: 15px;
+  height: 28px;
+  width: 150px;
+  padding-top: 5px;
+  text-align: center;
+  border-radius: 25px;
+  font-family: "Open Sans";
+  background-color: #eef1f3;
+}
+
+.form-group {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 60px;
+  margin: 12px auto;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+form > div {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 0 20px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(35, 92, 109);
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  text-align: center;
+}
+
+form > div > img {
+  filter: invert(1);
+  width: 50px;
+}
+
+form > input,
+form > textarea {
+  padding: 12px;
+  margin: 12px auto;
+  border: 1px solid #ccc;
+  color: #ddd;
+  background-color: rgba(34, 34, 34, 0.308);
+  border-radius: 4px;
+  display: block;
+  width: 70vw;
+}
+
+form > textarea {
+  height: 100px;
+  resize: none;
+}
+
+form > input[type="submit"] {
+  max-width: 20vw;
+  padding-left: 1%;
+  padding-right: 1%;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+form > input[type="submit"]:hover {
+  background-color: rgba(10, 65, 82, 0.719);
+}
+pre{
+    font-size: 20px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="inner_navbar">
+            <div class="logo">
+                <a href="home.html">KS</span></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="resume.html" class="active">Resume</a></li>
+                    <li><a href="contactUs.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <section class="container" >
+        <div class="head-resume">
+            <img style="border-radius: 50%;" src="kshitij.jpg" width="120px" height="120px" id="image">
+            <p id="name">Kshitij Amit Sabale </p>
+            <a href="mailto:kshitijsabale14@gmail.com" target="_blank">
+                <p id="email">kshitijsabale14@gmail.com</p>
+            </a>
+        </div>
+        <h3>Career Objective</h3>
+        <p> To become Software Developer and become Good Problem Solver . </p>
+        <h3>Education:</h3>
+        <!-- Table -->
+        <section>
+
+            <br /><br />
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>YEAR</th>
+                            <th>INSTITUTION</th>
+                            <th>COURSE</th>
+                            <th>RESULT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2019-'23</td>
+                            <td>Walchand college of Enginnering,Sangli,Maharashtra, India</td>
+                            <td>B.Tech (Computer Science & Engineering)</td>
+                            <td>9.64</td>
+                        </tr>
+                        <tr>
+                            <td>2017-'19</td>
+                            <td>Pace Junior Science College ,Maharashtra, India</td>
+                            <td>HSC</td>
+                            <td>89.1%</td>
+                        </tr>
+                        <tr>
+                            <td>2016-'17</td>
+                            <td>RYAN International School,Maharashtra,India</td>
+                            <td>CBSE</td>
+                            <td>98.2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <h3>Technical Skills</h3>
+        <div class="skill-row">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JS</div>
+            <div class="skill">CPP</div>
+        </div>
+        <div class="skill-row">
+            <div class="skill">C</div>
+            <div class="skill">Python</div>
+            <div class="skill">Mongodb</div>
+            <div class="skill">Selenium</div>
+        </div>
+        <br>
+        <br>
+        <h3>CERTIFICATIONS And ACHIEVEMENTS</h3>
+        <pre >
+            HACKERRANK BASIC AND INTERMEDIATE LEVEL
+                Certification of Proficiency in Programming using Data Structure and
+                Algorithm • Certificate Basic • Certificate Intermediate
+            
+            OTHER ACHIEVEMENTS
+                • Codeforces Highest rating: 1541 (Specialist)
+                • Codechef Highest rating: 1906 (4* division 2)
+                • Global Rank 1138 in Codeforces DIV - 3 round
+                • Global Rank 306 in Codechef May 2021 Long challenge
+                • Global Rank 205 in Codechef APRIL 2021 Cookoff
+                • Global Rank 302 in Codechef APRIL 2021 Lunchtime
+        </pre>
+
+        <h3>PROFILES</h3>
+        <pre>
+            Github:// KshitijSabale
+            LinkedIn:// KshitijSabale
+            Codechef:// Randomking
+            Codeforces:// Randumkeng
+            Hackerrank:// kshitijsabale14
+            Hackerearth:// kshitijsabale14  
+        </pre>
+        <h3>PROJECTS</h3>
+        <pre>
+            COLLEGE MANAGEMENT SYSTEM (COEUS) (LINK)
+                • Bootstrap , Django and MySql was used. • All the data related to
+                student and faculty of our college is handled• This would have at
+                least 1000 users .
+            REAL TIME STOPLOSS AND BREAKOUT NOTIFIER (LINK)
+                • Used Yahoo API to get real time share Price and Telegram API to
+                send message to group about the stop Loss Hit or Break Out Hit .
+            PROVIDER (LINK) (Store)
+                • It is a chrome extension for blocking and allowing specific YouTube
+                videos depending on keywords provided.
+            LIBRARY MANAGEMENT SYSTEM IN -(C LANG) (LINK)
+                • In this we used the concept of file management system , pointers ,
+                structures and basic conditional statements using C language.
+        </pre>
+
+            
+
+            <h3>Experience</h3>
+            <pre>
+                PROGRAMMING EXPERT, ACSES AUG 2021
+                    • Contest Moderator in CodeFusion- Global contest organised by ACSES.
+                    • Problem Setter in CodeFusion. Contest Links CF2020 CF2021
+                    • Delivered various session on Data Structures and Algorithms .
+                CODECHEF WCE CAMPUS CHAPTER NOV 2020
+                    • Working on spreading Competitive Programming culture in Campus
+                    • Conducted Contest and Session’s related to Competitive Programming
+            </pre>
+            <br>
+            <br>
+
+            <h3>CO-CURRICULAR ACTIVITES</h3>
+            <pre>
+                INGRESS HACKATHON (LINK)
+                    Theme - The new normalWe made a website to automate the
+                    INDIA CENSUS which occurs every 10 years. Our website helps
+                    government to take necessary actions and budget plans and
+                    government schemes by studying this data .
+            </pre>
+            <h3>Languages Known</h3>
+
+            <section>
+
+                <br /><br />
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>LANGUAGES</th>
+                                <th>SPEAK</th>
+                                <th>READ</th>
+                                <th>WRITE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ENGLISH</td>
+                                <td>✔</td>
+                                <td>✔</td>
+                                <td>✔</td>
+                            </tr>
+                            <tr>
+                                <td>HINDI</td>
+                                <td>✔</td>
+                                <td>✔</td>
+                                <td>✔</td>
+                            </tr>
+                            <tr>
+                                <td>MARATHI</td>
+                                <td>✔</td>
+                                <td>✔</td>
+                                <td>✔</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <h3>Intersts/Hobbies</h3>
+            <pre>
+                • Problem Solving
+                • Developing Solutions For Everyday life Problem
+                • Badminton 
+                • Swimming
+            </pre>
+            </div>
+
+            <footer style="text-align: center;">
+                <h4>
+                    CREATED BY - KSHITIJ AMIT SABALE
+                </h4>
+            </footer>
+
+</body>
+
+</html>
